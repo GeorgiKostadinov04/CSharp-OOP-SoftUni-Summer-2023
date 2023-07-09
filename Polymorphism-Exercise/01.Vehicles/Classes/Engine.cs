@@ -28,7 +28,7 @@ namespace _01.Vehicles.Classes
         private IVehicle CreateVehicle()
         {
             string[] tokens = reader.ReadLine().Split(" ", StringSplitOptions.RemoveEmptyEntries);
-            return vehicleFactory.Create(tokens[0], double.Parse(tokens[1]), double.Parse(tokens[2]));
+            return vehicleFactory.Create(tokens[0], double.Parse(tokens[1]), double.Parse(tokens[2]), double.Parse(tokens[3]));
         }
         
         private void ProcessCommand()
@@ -49,6 +49,11 @@ namespace _01.Vehicles.Classes
                 double distance = double.Parse(commandTokens[2]);
                 writer.WriteLine(vehicle.Drive(distance));
             }
+            else if(command == "DriveEmpty")
+            {
+                double distance = double.Parse(commandTokens[2]);
+                writer.WriteLine(vehicle.Drive(distance, false));
+            }
             else if(command == "Refuel")
             {
                 double fuelAmount = double.Parse(commandTokens[2]);
@@ -57,6 +62,7 @@ namespace _01.Vehicles.Classes
         }
         public void Run()
         {
+            vehicles.Add(CreateVehicle());
             vehicles.Add(CreateVehicle());
             vehicles.Add(CreateVehicle());
 

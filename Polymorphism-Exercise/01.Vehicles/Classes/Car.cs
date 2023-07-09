@@ -10,8 +10,8 @@ namespace _01.Vehicles.Classes
     public class Car : Vehicle
     {
         private const double ConsumptionIncrease = 0.9;
-        public Car(double fuelQuantity, double fuelConsumption)
-            :base(fuelQuantity, fuelConsumption, ConsumptionIncrease)
+        public Car(double fuelQuantity, double fuelConsumption, double tankCapacity)
+            :base(fuelQuantity, fuelConsumption,tankCapacity, ConsumptionIncrease)
         {
             
         }
